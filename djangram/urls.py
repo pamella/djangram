@@ -24,6 +24,7 @@ urlpatterns = [
 
     # apps
     path('', include('core.urls')),
+    path('', include('posts.urls')),
 ]
 
 if settings.DEBUG:
