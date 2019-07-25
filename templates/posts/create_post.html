@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Djangram | Postar
+{% endblock %}
+
+
+{% block body %}
+<!-- https://docs.djangoproject.com/en/2.2/ref/csrf/ -->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Postar">
+</form>
+
+
+{% endblock %}
