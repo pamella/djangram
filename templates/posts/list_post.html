@@ -9,16 +9,25 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
+
 {% block body %}
-
-    {% for p in posts %}
-        <img src="{{ p.image.url }}" width="50px" height="50px">
-        <p>{{ p.author }}</p>
-        <p>{{ p.description }}</p>
-
-        <hr>
-    {% empty %}
-        <h2>Poxa, você não tem nenhum post ainda :(</h2>
-    {% endfor %}
-
+    <section class="list-post-section">
+        <div class="list-post-container">
+            {% for p in posts %}
+                <div class="post-card">
+                    <div class="post-card-info-top">
+                        <div class="author-picture" style="background-image: url({{ p.author.picture.url }});"></div>
+                        <span class="author-username">{{ p.author.username }}</span>
+                    </div>
+                    <div class="post-card-img" style="background-image: url({{ p.image.url }});"></div>
+                    <div class="post-card-info-bottom">
+                        <span class="author-username">{{ p.author.username }}</span>
+                        <span>{{ p.description }}</span>
+                    </div>
+                </div>
+            {% empty %}
+                <h2>Poxa, você não tem nenhum post ainda :(</h2>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

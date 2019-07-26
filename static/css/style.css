@@ -1,0 +1,79 @@
+/* GENERAL */
+body, html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* COLORS */
+:root {
+    --color-light-gray: #fafafa;
+}
+
+
+/* TEMPLATE: LIST_POST */
+.list-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-light-gray);
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-bottom: 40px;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+
+.post-card-info-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.post-card-info-top > .author-picture {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.post-card-img {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.post-card-info-bottom {
+    width: 100%;
+    padding: 24px 16px 16px 16px;
+    box-sizing: border-box;
+}
+
+.post-card .author-username {
+    font-weight: 500;
+}
+
+
+/* TEMPLATE: CREATE_POST */
