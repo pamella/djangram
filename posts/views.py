@@ -1,10 +1,10 @@
+from django.contrib import messages
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
-from django.urls import reverse_lazy
-
-from posts.models import Post
 from posts.forms import PostCreateForm
+from posts.models import Post
 
 
 class PostListView(generic.ListView):
@@ -23,3 +23,7 @@ class PostCreateView(generic.CreateView):
         return {
             'user': self.request.user,
         }
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Você compartilhou um novo post! Confira abaixo.')
+        return super().form_valid(form)

@@ -13,6 +13,12 @@
 {% block body %}
 <section class="list-post-section">
     <div class="list-post-container">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
         {% for p in posts %}
             <div class="post-card">
                 <div class="post-card-info-top">
