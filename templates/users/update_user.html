@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Djangram | Editar perfil {% endblock title %}
+
+{% block body %}
+<section>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Editar">
+        </form>
+    </div>
+</section>
+{% endblock body %}

@@ -9,6 +9,9 @@
             </li>
             {% if not request.user.is_authenticated %}
             <li>
+                <a href="{% url 'users:signup_user' %}">Signup</a>
+            </li>
+            <li>
                 <a href="{% url 'users:login_user' %}">Login</a>
             </li>
             {% else %}
