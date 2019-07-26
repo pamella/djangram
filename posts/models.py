@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 # https://docs.djangoproject.com/en/2.2/ref/models/options
 
 class Post(models.Model):
-    author = models.ForeignKey('users.User', verbose_name='Autor', on_delete=models.CASCADE)
+    author = models.ForeignKey('users.User', verbose_name='Autor', related_name='posts', on_delete=models.CASCADE)
     image = models.ImageField(verbose_name='Imagem', upload_to='posts/')
     description = models.CharField(max_length=256, verbose_name='Descrição')
     created_at = models.DateTimeField(verbose_name='Criado em', auto_now_add=True)

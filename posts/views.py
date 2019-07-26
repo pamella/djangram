@@ -25,5 +25,10 @@ class PostCreateView(generic.CreateView):
         }
 
     def form_valid(self, form):
-        messages.success(self.request, 'Você compartilhou um novo post! Confira abaixo.')
+        # Mensagem estara disponivel no contexto do template
+        # linkado acima em success_url
+        messages.success(
+            self.request,
+            'Você compartilhou um novo post! Confira abaixo.'
+        )
         return super().form_valid(form)

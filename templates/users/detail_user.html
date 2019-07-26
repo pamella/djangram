@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Djangram | Perfil {% endblock title %}
+
+{% block body %}
+<section>
+    <div>
+        <p>{{ user.username }}</p>
+        <img src="{{ user.picture.url }}" width="50px" height="50px">
+
+
+        {% for post in user.posts.all %}
+            <p>{{ post.description }}</p>
+        {% endfor %}
+
+    </div>
+</section>
+{% endblock body %}
