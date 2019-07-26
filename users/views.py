@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.api import success
 from django.shortcuts import render
@@ -6,14 +7,16 @@ from django.views import generic
 
 from users.forms import UserSignupForm
 from users.models import User
+from users.mixins import UserHasAccessToDetailMixin
 
 
 class UserLoginView(LoginView):
     template_name = 'users/login.html'
 
 
-class UserLogoutView(LogoutView):
+class UserLogoutView(LoginRequiredMixin, LogoutView):
     pass
+
 
 class UserDetailView(generic.DetailView):
     model = User
@@ -28,7 +31,7 @@ class UserSignupView(generic.CreateView):
     success_url = reverse_lazy('users:login_user')
 
 
-class UserUpdateView(generic.UpdateView):
+class UserUpdateView(UserHasAccessToDetailMixin, generic.UpdateView):
     model = User
     fields = ['username', 'picture', ]
     template_name = 'users/update_user.html'

@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -7,13 +8,14 @@ from posts.forms import PostCreateForm
 from posts.models import Post
 
 
-class PostListView(generic.ListView):
+class PostListView(LoginRequiredMixin, generic.ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'posts/list_post.html'
+    ordering = ['-created_at', ]
 
 
-class PostCreateView(generic.CreateView):
+class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Post
     form_class = PostCreateForm
     template_name = 'posts/create_post.html'
