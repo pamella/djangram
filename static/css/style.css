@@ -4,6 +4,7 @@ body, html {
     font-size: 16px;
     margin: 0;
     padding: 0;
+    background-color: var(--color-light-gray);
 }
 
 * {
@@ -14,6 +15,11 @@ body, html {
 /* COLORS */
 :root {
     --color-light-gray: #fafafa;
+    --color-new-black: #262626;
+    --color-nero: #1c1c1c;
+    --color-new-orange: #fd6b37;
+    --color-border: #e6e6e6;
+    --card-shadow: 0 6px 10px 0 rgba(0,0,0,0.15);
 }
 
 
@@ -28,11 +34,13 @@ body, html {
 .post-card {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 450px;
     margin-bottom: 40px;
     background-color: white;
     border: 1px solid #e6e6e6;
     border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    color: var(--color-new-black);
 }
 
 .post-card-info-top {
@@ -58,7 +66,7 @@ body, html {
 
 .post-card-img {
     width: 100%;
-    height: 500px;
+    height: 450px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -77,3 +85,58 @@ body, html {
 
 
 /* TEMPLATE: CREATE_POST */
+.create-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-light-gray);
+}
+
+.create-post-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin-bottom: 40px;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    color: var(--color-new-black);
+    overflow: hidden;
+}
+
+.create-post-input-img {
+    padding: 20px 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.create-post-input-text {
+    width: 100%;
+    padding: 20px 16px;
+    border: 1px solid var(--color-border);
+    border-left: none;
+    border-right: none;
+    box-sizing: border-box;
+}
+
+.create-post-input-submit {
+    align-self: center;
+    margin: 12px 0px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-color: var(--color-new-orange);
+    font-weight: 500;
+    color: white;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.create-post-input-submit:hover {
+    background-color: white;
+    color: var(--color-new-orange);
+    border: 2px solid var(--color-new-orange);
+}

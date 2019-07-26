@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
     Djangram | Postar
@@ -7,14 +8,21 @@
 
 
 {% block body %}
-<!-- https://docs.djangoproject.com/en/2.2/ref/csrf/ -->
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+<section class="create-post-section">
+    <div class="create-post-container">
+        <h2 class="title">Compartilhe um post novo!</h2>
+        <form class="create-post-form" method="POST" enctype="multipart/form-data">
+            <!-- https://docs.djangoproject.com/en/2.2/ref/csrf/ -->
+            {% csrf_token %}
 
-    {{ form.as_p }}
+            <!-- {{ form.as_p }} -->
 
-    <input type="submit" value="Postar">
-</form>
+            {% render_field form.author %}
+            {% render_field form.image class+='create-post-input-img' %}
+            {% render_field form.description class+='create-post-input-text' placeholder='Digite aqui a descrição do post' %}
 
-
+            <input class="create-post-input-submit" type="submit" value="Postar">
+        </form>
+    </div>
+</section>
 {% endblock %}
