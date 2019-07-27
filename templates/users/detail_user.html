@@ -5,19 +5,32 @@
 {% block title %} Djangram | Perfil {% endblock title %}
 
 {% block body %}
-<section>
-    <div>
-        <p>{{ user.username }}</p>
-        <img src="{{ user.picture.url }}" width="50px" height="50px">
+<section class="detail-user-section">
+    <div class="detail-user-container">
+        <div class="detail-user-content">
+            <div class="back-img-cover-center detail-user-img" style="background-image: url({{ user.picture.url }});"></div>
+            <div class="detail-user-text">
+                <h3 class="detail-user-username">{{ user.username }}</h3>
+                <div class="detail-user-numbers">
+                    <span><b>{{ user.posts.all.count }}</b> posts</span>
+                </div>
+                {% if user == request.user %}
+                    <a href="{% url 'users:update_user' user.pk %}" class="detail-user-edit">Editar perfil</a>
+                {% endif %}
+            </div>
+        </div>
 
-        <a href="{% url 'users:update_user' user.pk %}">Editar perfil</a>
+        <hr>
 
-        {% for post in user.posts.all %}
-            <p>{{ post.description }}</p>
-        {% empty %}
-            <p class="message">Poxa, você não tem nenhum post ainda :(</p>
-        {% endfor %}
-
+        <div class="detail-user-posts">
+            {% for post in user.posts.all %}
+                <a class="post-card-preview" href="">
+                    <div class="back-img-cover-center post-card-preview-image" style="background-image: url({{ post.image.url }});"></div>
+                </a>
+            {% empty %}
+                <p class="message">Poxa, você não tem nenhum post ainda :(</p>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock body %}

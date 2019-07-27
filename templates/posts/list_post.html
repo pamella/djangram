@@ -20,17 +20,9 @@
         {% endif %}
 
         {% for p in posts %}
-            <div class="post-card">
-                <div class="post-card-info-top">
-                    <div class="author-picture" style="background-image: url({{ p.author.picture.url }});"></div>
-                    <span class="author-username">{{ p.author.username }}</span>
-                </div>
-                <div class="post-card-img" style="background-image: url({{ p.image.url }});"></div>
-                <div class="post-card-info-bottom">
-                    <span class="author-username">{{ p.author.username }}</span>
-                    <span>{{ p.description }}</span>
-                </div>
-            </div>
+            {% with post=p  %}
+                {% include 'includes/card.html' %}
+            {% endwith %}
         {% empty %}
             <h2>Poxa, você não tem nenhum post ainda :(</h2>
         {% endfor %}

@@ -1,0 +1,15 @@
+<div class="post-card">
+    <div class="post-card-info-top">
+        <div class="author-picture" style="background-image: url({{ post.author.picture.url }});"></div>
+        <span class="author-username">
+            <a href="{% url 'users:detail_user' post.author.pk %}">{{ post.author.username }}</a>
+        </span>
+    </div>
+    <div class="post-card-img" style="background-image: url({{ post.image.url }});"></div>
+    <div class="post-card-info-bottom">
+        <span class="author-username">
+            <a href="{% url 'users:detail_user' post.author.pk %}">{{ post.author.username }}</a>
+        </span>
+        <span>{{ post.description }}</span>
+    </div>
+</div>
