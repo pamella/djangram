@@ -59,6 +59,15 @@ h6 {
 
 
 /* COMMOM */
+.djangram {
+    font-family: 'Gamja Flower', cursive;
+    margin: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, var(--color-new-orange), #ffa10e);
+}
+
 .message {
     background-color: cornflowerblue;
     font-weight: 600;
