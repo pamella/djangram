@@ -5,14 +5,15 @@
 {% block title %} Djangram | Editar perfil {% endblock title %}
 
 {% block body %}
-<section>
-    <div>
-        <form method="post" enctype="multipart/form-data">
+<section class="update-user-section">
+    <div class="update-user-container simple-container">
+        <h2>Editar perfil</h2>
+        <form class="update-user-form simple-form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
             {{ form.as_p }}
 
-            <input type="submit" value="Editar">
+            <input class="simple-input-submit" type="submit" value="Editar">
         </form>
     </div>
 </section>
