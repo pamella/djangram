@@ -6,14 +6,15 @@
 
 
 {% block body %}
-<section>
-    <div>
-        <form method="post">
+<section class="signup-user-section">
+    <div class="signup-user-container simple-container">
+        <h2>Signup</h2>
+        <form class="signup-form simple-form" method="post">
             {% csrf_token %}
 
             {{ form.as_p }}
 
-            <input type="submit" value="Signup">
+            <input class="simple-input-submit" type="submit" value="Signup">
         </form>
     </div>
 </section>
