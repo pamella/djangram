@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Djangram | Deletear post {% endblock %}
+
+
+{% block body %}
+<section>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+
+            <p>Você tem certeza que quer deletar o post abaixo?</p>
+            <img src="{{ post.image.url }}" width="80px" height="80px">
+
+            <input type="submit" value='Deletar'>
+        </form>
+    </div>
+</section>
+{% endblock body %}

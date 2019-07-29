@@ -23,6 +23,8 @@
             {% with post=p  %}
                 {% include 'includes/card.html' %}
             {% endwith %}
+
+            <a href="{% url 'posts:detail_post' p.pk %}">Ver detalhes</a>
         {% empty %}
             <h2>Poxa, você não tem nenhum post ainda :(</h2>
         {% endfor %}

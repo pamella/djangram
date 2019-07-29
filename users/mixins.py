@@ -5,6 +5,10 @@ from django.shortcuts import redirect
 from users.models import User
 
 
+# Django Mixins
+# https://docs.djangoproject.com/en/2.2/topics/class-based-views/mixins/#
+# http://ccbv.co.uk/projects/Django/2.2/django.contrib.auth.mixins/
+
 class UserHasAccessToDetailMixin(LoginRequiredMixin):
     def handle_no_permission(self):
         # mostrando mensagens
@@ -22,4 +26,5 @@ class UserHasAccessToDetailMixin(LoginRequiredMixin):
 
         if not user == request.user:
             return self.handle_no_permission()
+
         return super().dispatch(request, *args, **kwargs)
