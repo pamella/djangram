@@ -6,8 +6,9 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from users.forms import UserSignupForm
-from users.models import User
+from users.helpers import send_confirm_user_signup_email
 from users.mixins import UserHasAccessToDetailMixin
+from users.models import User
 
 
 class UserLoginView(LoginView):
@@ -29,6 +30,16 @@ class UserSignupView(generic.CreateView):
     form_class = UserSignupForm
     template_name = 'users/signup_user.html'
     success_url = reverse_lazy('users:login_user')
+
+    def form_valid(self, form):
+        # equivalente nesse caso
+        # self.object = form.save()
+        # commit=False quando se quer adicionar outros atributos (fora os do form)
+        # antes de salvar de fato
+        self.object = form.save(commit=False)
+        self.object.save()
+        send_confirm_user_signup_email(self.object)
+        return super().form_valid(form)
 
 
 class UserUpdateView(UserHasAccessToDetailMixin, generic.UpdateView):

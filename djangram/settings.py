@@ -142,3 +142,12 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/pt-br/2.2/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+
+# Email
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django.TemplateBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'testedjangojr@gmail.com'
+EMAIL_HOST_PASSWORD = 'senhaTEST'
