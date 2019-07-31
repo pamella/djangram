@@ -12,15 +12,49 @@
             <div class="detail-user-text">
                 <h3 class="detail-user-username">{{ user.username }}</h3>
                 <div class="detail-user-numbers">
-                    <span><b>{{ user.posts.all.count }}</b> posts</span>
+                    <span><b>{{ user.posts.all.count }}</b> posts •</span>
+                    <span><b>{{ user.following.all.count }}</b> seguindo •</span>
+                    <span><b>{{ user.followers.all.count }}</b> seguidores</span>
                 </div>
                 {% if user == request.user %}
                     <a href="{% url 'users:update_user' user.pk %}" class="detail-user-edit">Editar perfil</a>
+                {% else %}
+                    <a class="detail-user-edit" href="{% url 'users:follow_user' user.pk %}">
+                        {% if request_user_has_followed %}
+                            Seguindo
+                        {% else %}
+                            Seguir
+                        {% endif %}
+                    </a>
                 {% endif %}
             </div>
         </div>
 
         <hr>
+
+        {% if user.following.all %}
+        <div>
+            <h5>Seguindo</h5>
+
+            {% for aux in user.following.all  %}
+                <div>{{ aux.username }}</div>
+            {% endfor %}
+
+        </div>
+        {% endif %}
+
+
+        {% if user.followers.all %}
+            <div>
+                <h5>Seguidores</h5>
+
+                {% for aux in user.followers.all  %}
+                    <div>{{ aux.username }}</div>
+                {% endfor %}
+
+            </div>
+        {% endif %}
+
 
         <div class="detail-user-posts">
             {% for post in user.posts.all %}
