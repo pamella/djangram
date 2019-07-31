@@ -9,6 +9,9 @@
 <section class="signup-user-section">
     <div class="signup-user-container simple-container">
         <h2>Signup</h2>
+
+        <a class="social-login-link" href="{% url "social:begin" "google-oauth2" %}">Signup com Google</a>
+
         <form class="signup-form simple-form" method="post">
             {% csrf_token %}
 

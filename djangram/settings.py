@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users',
 
     'widget_tweaks',
+    'social_django',
 
 ]
 
@@ -54,6 +55,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # social_django
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
 ]
 
 ROOT_URLCONF = 'djangram.urls'
@@ -69,6 +74,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # social_django
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
@@ -95,6 +105,34 @@ LOGIN_URL = 'users:login_user'
 LOGIN_REDIRECT_URL = 'posts:create_post'
 LOGOUT_REDIRECT_URL = 'users:login_user'
 
+# social_django
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+
+    # django
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.social_auth.associate_by_email',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+# ID do cliente
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '129312100772-cg9kup64i6vkhq99om9nqcqr48ogq4eo.apps.googleusercontent.com'
+# Chave secreta do cliente
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Hi0lpz-1jtLb6rTYlVskMidC'
+
+# Instagram
+# https://www.instagram.com/developer/authentication/
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

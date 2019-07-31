@@ -80,6 +80,14 @@ h6 {
     background-repeat: no-repeat;
 }
 
+.social-login-link {
+    padding: 16px;
+    box-sizing: border-box;
+    background: red;
+    color: white;
+    border-radius: 4px;
+}
+
 
 /* NAVBAR */
 .menu {
