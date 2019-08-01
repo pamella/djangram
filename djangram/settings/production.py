@@ -1,5 +1,8 @@
 from djangram.settings import base
 
+# Configure Django App for Heroku.
+import django_heroku
+
 
 SECRET_KEY = 'e2*^tohc_gfy82x2lm4@+6a%4e3(2s-6&-%2bb-^qz6ss6+8lb'
 
@@ -47,3 +50,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Hi0lpz-1jtLb6rTYlVskMidC'
 # Email
 EMAIL_HOST_USER = 'testedjangojr@gmail.com'
 EMAIL_HOST_PASSWORD = 'senhaTEST'
+
+
+django_heroku.settings(locals())
