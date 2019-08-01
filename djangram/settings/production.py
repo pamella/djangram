@@ -1,4 +1,4 @@
-from djangram.settings import base
+from djangram.settings.base import *
 
 # Configure Django App for Heroku.
 import django_heroku
@@ -9,6 +9,10 @@ SECRET_KEY = 'e2*^tohc_gfy82x2lm4@+6a%4e3(2s-6&-%2bb-^qz6ss6+8lb'
 DEBUG = False
 
 ALLOWED_HOSTS = []
+
+MIDDLEWARE.insert(  # insert WhiteNoiseMiddleware right after SecurityMiddleware
+    MIDDLEWARE.index('django.middleware.security.SecurityMiddleware') + 1,
+    'whitenoise.middleware.WhiteNoiseMiddleware')
 
 DATABASES = {
 
