@@ -12,15 +12,6 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-MIDDLEWARE.insert(  # insert WhiteNoiseMiddleware right after SecurityMiddleware
-    MIDDLEWARE.index('django.middleware.security.SecurityMiddleware') + 1,
-    'whitenoise.middleware.WhiteNoiseMiddleware'
-)
-
-# Dropbox
-
-
 # social_django
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
