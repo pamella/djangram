@@ -1,4 +1,4 @@
-# :rocket: Djangram (django + instangram)
+# :rocket: Djangram (django + instagram)
 Repositório do sistema elaborado para as aulas do curso de Django, realizado na Jornada de Cursos 2019 do [@CITiUFPE](https://github.com/citiufpe).
 
 ## Deploy
