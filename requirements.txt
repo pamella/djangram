@@ -9,6 +9,7 @@ django-heroku==0.3.1
 django-render-block==0.6
 django-templated-email==2.3.0
 django-widget-tweaks==1.4.5
+dropbox==9.4.0
 gunicorn==19.9.0
 idna==2.8
 ipdb==0.12
