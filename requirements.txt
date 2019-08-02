@@ -7,6 +7,7 @@ dj-database-url==0.5.0
 Django==2.2.3
 django-heroku==0.3.1
 django-render-block==0.6
+django-storages==1.7.1
 django-templated-email==2.3.0
 django-widget-tweaks==1.4.5
 dropbox==9.4.0
